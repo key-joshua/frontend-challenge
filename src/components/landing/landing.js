@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Landing extends Component {
   handleBook(key) {
     key.preventDefault();
-    const redirectUrl = '/book';
+    const redirectUrl = '/books';
     setTimeout(() => {
       window.location.href = redirectUrl;
     }, 1000);

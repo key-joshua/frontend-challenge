@@ -12,7 +12,7 @@ const shortHeader = (data) => {
 const shortBody = (data) => {
   try {
     if (data === null || data === undefined) return null;
-    const length = 50;
+    const length = 60;
     const trimmedData = `${data.substring(0, length)} ...`;
     return trimmedData;
   } catch (error) {
