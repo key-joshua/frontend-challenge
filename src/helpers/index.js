@@ -1,10 +1,10 @@
 import * as apiList from './apiList';
-import * as backendURLs from './variables';
+import * as variables from './variables';
 import { shortHeader, shortBody } from './validate';
 
 export {
   apiList,
-  backendURLs,
-  shortHeader,
+  variables,
   shortBody,
+  shortHeader,
 };

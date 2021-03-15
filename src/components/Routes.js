@@ -18,7 +18,7 @@ const Routes = () => {
 
           <Route exact path="/" component={Landing} />
 
-          <Route exact path="/book" component={Books} />
+          <Route exact path="/books" component={Books} />
 
         </Switch>
       </Router>
