@@ -124,6 +124,7 @@ class Books extends Component {
 
     const indexOfLastBook = currentPage * postPerPage;
     const indexOfFirstBook = indexOfLastBook - postPerPage;
+
     booksData = data.slice(indexOfFirstBook, indexOfLastBook);
 
     return (
@@ -182,6 +183,7 @@ class Books extends Component {
 
             {searchedDataLoaded === true && searchedData.length > 0
               ? searchedData.map((element) => (
+
                 <div className="box-option" key={element.id}>
 
                   <div className="window-description">
