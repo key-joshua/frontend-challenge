@@ -37,7 +37,7 @@ class Books extends Component {
 
   componentDidMount() {
     const { postPerPage } = this.state;
-    this.setState({ result: true, data: [], dataLoaded: false, searchedData: [], searchedDataLoaded: false });
+    this.setState({ result: true, data: [], dataLoaded: false, searchedData: [], searchedDataLoaded: false, keyword: '' });
 
     axios.get(`${apiList.FETCH_BOOKS}`)
       .then((response) => {
@@ -79,8 +79,8 @@ class Books extends Component {
       return;
     }
 
-    this.setState({ result: true });
     const filter = keyword.toLowerCase();
+    this.setState({ result: true, searchedData: [], searchedDataLoaded: false });
 
     booksData.find((element) => {
       if (element.title.toLowerCase().indexOf(filter) > -1) {
@@ -124,9 +124,8 @@ class Books extends Component {
 
     const indexOfLastBook = currentPage * postPerPage;
     const indexOfFirstBook = indexOfLastBook - postPerPage;
-    booksData = searchedData.length > 0 && searchedDataLoaded === true
-      ? searchedData.slice(indexOfFirstBook, indexOfLastBook)
-      : data.slice(indexOfFirstBook, indexOfLastBook);
+
+    booksData = data.slice(indexOfFirstBook, indexOfLastBook);
 
     return (
       <div className="book-page">
@@ -182,8 +181,9 @@ class Books extends Component {
 
           <div className="box-container">
 
-            {dataLoaded === true && data.length
-              ? booksData.map((element) => (
+            {searchedDataLoaded === true && searchedData.length > 0
+              ? searchedData.map((element) => (
+
                 <div className="box-option" key={element.id}>
 
                   <div className="window-description">
@@ -207,7 +207,32 @@ class Books extends Component {
 
                 </div>
               ))
-              : null}
+              : dataLoaded === true && data.length > 0 && booksData.length > 0
+                ? booksData.map((element) => (
+                  <div className="box-option" key={element.id}>
+
+                    <div className="window-description">
+
+                      <span> {element.id} </span>
+
+                      <div className="window-text">
+
+                        <div className="text-title">{shortHeader(element.title)}</div>
+                        <div className="text-contents"> {shortBody(element.body)}</div>
+
+                      </div>
+
+                    </div>
+
+                    <div className="window-action">
+
+                      <button type="submit"> View Book </button>
+
+                    </div>
+
+                  </div>
+                ))
+                : null}
 
           </div>
 
