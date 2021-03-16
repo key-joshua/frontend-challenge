@@ -147,7 +147,7 @@ class Books extends Component {
 
             <div className="search-action">
 
-              <input type="text" placeholder="Search" id="keyword" value={keyword} onChange={(id) => this.handleChange(id)} />
+              <input type="text" placeholder="Search by title" id="keyword" value={keyword} onChange={(id) => this.handleChange(id)} />
               <FontAwesomeIcon icon={faSearch} className="icon" onClick={(key) => { this.handleSearchBook(key); }} />
 
             </div>
