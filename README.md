@@ -3,10 +3,13 @@
 A restful JSON API is provided at https://jsonplaceholder.typicode.com (see documentation) that exposes the following schema.
 
 Email: k.joshua855@gmail.com
+<br>
 Telephone: +250 789 619 442
+<br>
 Names: Josue BYIRINGIRO
+<br>
 
-Frontend Challenge
+# Frontend Challenge
 
 This is the Github repository link of the frontend challenge 
 
